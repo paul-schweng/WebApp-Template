@@ -1,0 +1,21 @@
+<mat-form-field appearance="fill"
+                [ngbPopover]="popover" triggers="manual" container="body" placement="left" [autoClose]="'outside'"
+                #p="ngbPopover" (focusin)="type === 'new' && p.open()" (focusout)="p.close()">
+
+  <mat-label>{{label}}</mat-label>
+  <input matInput [type]="hide ? 'password' : 'text'" [formControl]="formControl" required>
+  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" type="button" [attr.aria-pressed]="hide">
+    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </button>
+
+  <mat-error *ngIf="formControl.hasError('required')">Darf nicht leer sein!</mat-error>
+  <mat-error *ngIf="type === 'repeat' && formControl.errors?.wrongRepeat">Passwort stimmt nicht überein</mat-error>
+</mat-form-field>
+
+<ng-template #popover>
+  <div class="d-flex align-items-center" *ngFor="let reg of securePasswordRegEx">
+    <mat-icon *ngIf="checkRegex(reg.regex)" class="color-green">check_circle_outline</mat-icon>
+    <mat-icon *ngIf="!checkRegex(reg.regex)" class="color-red">cancel</mat-icon>
+    <small class="ms-1">{{reg.name}}</small>
+  </div>
+</ng-template>

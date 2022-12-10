@@ -1,0 +1,46 @@
+<busy-div [busy]="isBusy">
+
+  <form (ngSubmit)="registerClicked()" class="d-inline-flex justify-content-center w-100 mb-5">
+
+    <div [formGroup]="formGroup" class="d-inline-grid w-75">
+
+      <span class="d-inline-grid py-4 display-3">
+        Willkommen!
+        <span class="pt-4 h4">
+          Hast Du bereits einen Account?
+          <a routerLink="/login">Anmelden</a>
+        </span>
+      </span>
+
+
+      <label class="pt-4 h6">Name</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Namen eingeben..." formControlName="name" required>
+        <mat-error *ngIf="formGroup.controls['name'].invalid">Darf nicht leer sein!</mat-error>
+      </mat-form-field>
+
+      <label class="pt-4 h6">Username</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username eingeben..." formControlName="username" maxlength="20" required>
+        <mat-error *ngIf="formGroup.controls['username'].hasError('required')">Darf nicht leer sein!</mat-error>
+        <mat-error *ngIf="formGroup.controls['username'].hasError('pattern')">Erlaubte Zeichen: a-z 0-9 . - _</mat-error>
+        <mat-error *ngIf="!userAvailable">Username bereits vergeben!</mat-error>
+      </mat-form-field>
+
+      <label class="pt-4 h6">Passwort</label>
+      <input-pwd class="d-inline-grid" type="new" (value)="user.password = $event" [securePasswordRegEx]="[pwdRegex]" #newPwd></input-pwd>
+
+      <label class="pt-4 h6">Passwort wiederholen</label>
+      <input-pwd class="d-inline-grid" type="repeat" [repeatedPwd]="newPwd.formControl.value" #repeatPwd></input-pwd>
+
+      <button class="mt-5" color="accent" type="submit" mat-raised-button
+              [disabled]="isInvalid() || repeatPwd.formControl.invalid || newPwd.formControl.invalid">
+        Registrieren
+      </button>
+
+    </div>
+  </form>
+
+</busy-div>

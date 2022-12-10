@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+@use "styles/colors";
+
+/*
+@use '@angular/material' as mat;
+
+@import "@angular/material/theming";
+
+
+@import "@angular/material/theming";
+@include mat.core();
+
+ */
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+@import "styles/bootstrap-night.min";
+
+html, body {
+  height: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--very-light-brown) #f1f1f1;
+  background-color: var(--bs-body-bg);
+}
+body {
+  padding-top: 64px;
+  margin-bottom: 60px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+
+
+.d-inline-grid{
+  display: inline-grid;
+}
+
+.d-grid{
+  display: grid;
+}
+
+.float-left{
+  float: left;
+}
+
+.cg-busy-backdrop {
+  opacity: 0.2 !important;
+}

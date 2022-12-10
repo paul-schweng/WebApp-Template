@@ -1,0 +1,29 @@
+.ng-busy {
+  height: 100%;
+  width: 100%;
+  z-index: 1002;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+}
+
+.busy-text {
+  font-size: 80%;
+  margin: unset;
+  padding-left: .5rem;
+}
+
+.min-height {
+  min-height: 150px;
+  display: block;
+}
+
+.stay-screen-middle {
+  top: 40%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  position: fixed;
+}
+
