@@ -3,8 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Backend/Backend.iml" filepath="$PROJECT_DIR$/Backend/Backend.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Frontend.iml" filepath="$PROJECT_DIR$/Frontend.iml" />
-      <module fileurl="file://$PROJECT_DIR$/GymTracker.iml" filepath="$PROJECT_DIR$/GymTracker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebApp-Template.iml" filepath="$PROJECT_DIR$/WebApp-Template.iml" />
     </modules>
   </component>
 </project>
